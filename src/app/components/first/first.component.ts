@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {NgForOf, NgIf} from "@angular/common";
 import {Messages} from "../../messages";
 import {MessageDetailsComponent} from "../message-details/message-details.component";
+import {MyFirstService} from "../../services/my-first.service";
 
 @Component({
   selector: 'app-first',
@@ -24,12 +25,23 @@ export class FirstComponent {
   message: string = '';
   isSubmitted: boolean = false;
   messages: Array<Messages> = [];
+  // private service: MyFirstService = inject(MyFirstService);
+
+  constructor(
+    private service: MyFirstService
+  ) {
+    this.messages = this.service.getAllMessages();
+    this.isSubmitted = this.messages.length > 0;
+  }
+  // constructor injection: it's explicit
+
+  // property injection
 
   protected readonly structuredClone = structuredClone;
 
   onSubmit() {
     this.isSubmitted = true;
-    this.messages.push({
+    this.service.insert({
       name: this.name,
       email: this.email,
       message: this.message
@@ -42,3 +54,4 @@ export class FirstComponent {
     this.messages.splice(index, 1);
   }
 }
+
