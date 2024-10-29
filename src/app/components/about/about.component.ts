@@ -15,11 +15,19 @@ export class AboutComponent implements OnInit{
   ) {
   }
 
-  param: any;
-
-  ngOnInit(): void {
-    console.log(this.activatedRoute);
-    this.param = this.activatedRoute.snapshot.params['username'];
-  }
+  // param: any;
+  // queryParam: any;
+  //
+  // ngOnInit(): void {
+  //   console.log(this.activatedRoute);
+  //   this.param = this.activatedRoute.snapshot.params['username'];
+  //   this.queryParam = this.activatedRoute.snapshot.queryParams['course'];
+  // }
 
 }
+
+
+
+
+
+
