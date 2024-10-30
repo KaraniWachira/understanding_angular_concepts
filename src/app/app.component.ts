@@ -12,5 +12,21 @@ import {AboutComponent} from "./components/about/about.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'xample-app';
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

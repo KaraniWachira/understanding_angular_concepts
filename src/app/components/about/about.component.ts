@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {ProductService} from "../../services/api/products/product.service";
+import {Products} from "../../services/api/models/products-interface";
 
 @Component({
   selector: 'app-about',
@@ -11,9 +13,28 @@ import {ActivatedRoute} from "@angular/router";
 export class AboutComponent implements OnInit{
 
   constructor(
-    private activatedRoute: ActivatedRoute
+    private service : ProductService
   ) {
   }
+
+  ngOnInit(): void {
+    // this.service.getAllProductsWithLimit()
+    //   .subscribe({
+    //     next: (data) => {
+    //       console.log(data);
+    //
+    //     }
+    //   });
+
+    // post new product //
+
+  }
+
+
+  // constructor(
+  //   private activatedRoute: ActivatedRoute
+  // ) {
+  // }
 
   // param: any;
   // queryParam: any;

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {RouterLink} from "@angular/router";
+import {ProductService} from "../../services/api/products/product.service";
 
 @Component({
   selector: 'app-menu',
@@ -11,5 +12,6 @@ import {RouterLink} from "@angular/router";
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
+
 
 }
