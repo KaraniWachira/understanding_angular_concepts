@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProductService} from "../../services/api/products/product.service";
 import {Products} from "../../services/api/models/products-interface";
+import {log} from "@angular-devkit/build-angular/src/builders/ssr-dev-server";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-about',
@@ -27,7 +29,23 @@ export class AboutComponent implements OnInit{
     //   });
 
     // post new product //
+    const product: Products = {
+      title: "My Product",
+      description: "My product description",
+      price: 150,
+      category: "some catergory",
+      image: "https://example-image.jpg"
+    }
 
+    this.service.creatProduct(product)
+      .subscribe({
+      next: (result: Products)=> {
+        console.log(result);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    });
   }
 
 
